@@ -15,4 +15,10 @@ class OrangController extends GetxController {
       orang.value.nama = orang.value.nama.toString().toLowerCase();
     });
   }
+
+  var count = 0;
+  void add() {
+    count++;
+    update();
+  }
 }

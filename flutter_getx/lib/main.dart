@@ -28,12 +28,22 @@ class HomePage extends StatelessWidget {
         title: Text("GetX"),
       ),
       body: Center(
-          child: GetX<OrangController>(
-        init: OrangController(),
-        builder: (controller) => Text(
-          "Nama Saya ${controller.orang.value.nama}",
-          style: TextStyle(fontSize: 30),
-        ),
+          child: Column(
+        children: [
+          GetX<OrangController>(
+            init: OrangController(),
+            builder: (controller) => Text(
+              "Nama Saya ${controller.orang.value.nama}",
+              style: TextStyle(fontSize: 30),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          GetBuilder<OrangController>(
+              init: OrangController(),
+              builder: (controller) => Text("Angka ${controller.count}"))
+        ],
       )),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -48,6 +58,12 @@ class HomePage extends StatelessWidget {
             child: Text("Low"),
             onPressed: () {
               Get.find<OrangController>().changeToLower();
+            },
+          ),
+          FloatingActionButton(
+            child: Text("+"),
+            onPressed: () {
+              Get.find<OrangController>().add();
             },
           ),
         ],
