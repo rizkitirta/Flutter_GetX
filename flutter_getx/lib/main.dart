@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/controllers/countController.dart';
 import 'package:flutter_getx/controllers/orang_controller.dart';
 import 'package:get/get.dart';
 
@@ -22,7 +23,7 @@ class MainPage extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   // final orangController = Get.find<OrangController>();
-  final CountController = Get.put(CounterController());
+  final count = Get.put(CountController());
 
   @override
   Widget build(BuildContext context) {
@@ -34,62 +35,28 @@ class HomePage extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          GetBuilder<CounterController>(
-            id: 1,
-            builder: (_) => Text(
-              "ID ${CountController.count}",
-              style: TextStyle(fontSize: 30),
-            ),
+          Obx(() => Text("Terjadi Sesuatu : ${count.count} x")),
+          SizedBox(
+            height: 10,
           ),
-          GetBuilder<CounterController>(
-            id: 2,
-            builder: (_) => Text(
-              "ID ${CountController.count}",
-              style: TextStyle(fontSize: 30),
-            ),
-          ),
-          GetBuilder<CounterController>(
-            id: 3,
-            builder: (_) => Text(
-              "ID ${CountController.count}",
-              style: TextStyle(fontSize: 30),
-            ),
-          ),
-          // GetX<OrangController>(
-          //   init: OrangController(),
-          //   builder: (controller) => Text(
-          //     "Nama Saya ",
-          //     style: TextStyle(fontSize: 30),
-          //   ),
-          // ),
-          // SizedBox(
-          //   height: 10,
-          // ),
-          // GetBuilder<OrangController>(
-          //     init: OrangController(),
-          //     builder: (controller) => Text("Angka ${controller.count}"))
+          Container(
+            width: 300,
+            child: TextField(
+                onChanged: (_) => count.change(),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(), labelText: "Worker")),
+          )
         ],
       )),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: () {
-              Get.find<CounterController>().add();
-            },
+            child: Icon(Icons.refresh),
+            onPressed: () => count.reset(),
           ),
         ],
       ),
     );
-  }
-}
-
-class CounterController extends GetxController {
-  var count = 0.obs;
-
-  void add() {
-    count++;
-    update([2,3]);
   }
 }
