@@ -6,7 +6,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 
 class PagesRoute {
   static final pages = [
-    GetPage(name: RoutesNamed.page_dua, page: () => PageDua()),
-    GetPage(name: RoutesNamed.page_tiga, page: () => PageTiga()),
+    GetPage(name: RoutesNamed.home_page, page: () => HomePage()),
+    GetPage(name: RoutesNamed.product_page, page: () => Product()),
+    GetPage(name: RoutesNamed.product_page + '/:id?', page: () => DetailPage()),
   ];
 }

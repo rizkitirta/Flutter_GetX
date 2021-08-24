@@ -14,7 +14,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: PageSatu(),
+      home: HomePage(),
       getPages: PagesRoute.pages,
     );
   }
