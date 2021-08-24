@@ -13,9 +13,20 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: () => Get.toNamed(RoutesNamed.product_page), child: Text("All Product >>")),
+            ElevatedButton(
+                onPressed: () => Get.toNamed(RoutesNamed.product_page),
+                child: Text("All Product >>")),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Text("Show"),
+        onPressed: () => Get.snackbar("Test", "Test Snackbar",
+            duration: Duration(seconds: 3),
+            animationDuration: Duration(milliseconds: 300),
+            backgroundColor: Colors.amber,
+            backgroundGradient:
+                LinearGradient(colors: [Colors.blue, Colors.green])),
       ),
     );
   }
