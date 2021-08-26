@@ -16,6 +16,9 @@ class HomePage extends StatelessWidget {
               ElevatedButton(
                   onPressed: () => Get.toNamed(RoutesNamed.product_page),
                   child: Text("All Product >>")),
+              ElevatedButton(
+                  onPressed: () => Get.toNamed(RoutesNamed.product_page),
+                  child: Text("All Product >>")),
             ],
           ),
         ),
@@ -39,7 +42,7 @@ class HomePage extends StatelessWidget {
                     onConfirm: () => print('ok'),
                     textCancel: "Batal",
                     onCancel: ()=> print('keluar'),
-                    
+
                     )),
           ],
         ));
