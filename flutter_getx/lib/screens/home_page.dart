@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/routes/routesNamed.dart';
 import 'package:get/get.dart';
 
-class DetailPage extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(" Detail Product ID ${Get.parameters}"),
+        title: Text("Home"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Product Id ${Get.parameters['id']}"),
-            Text("Product Name ${Get.parameters['ukuran']}"),
-            ElevatedButton(onPressed: () => Get.back(), child: Text("Back <<")),
+            ElevatedButton(
+                onPressed: () => Get.toNamed(RoutesNamed.shop_page),
+                child: Text("Shop>>")),
           ],
         ),
       ),

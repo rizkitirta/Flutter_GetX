@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx/controllers/countController.dart';
 import 'package:flutter_getx/routes/pages_route.dart';
-import 'package:flutter_getx/routes/routesNamed.dart';
-import 'package:flutter_getx/screens/screen_1.dart';
+import 'package:flutter_getx/screens/home_page.dart';
 // import 'package:flutter_getx/screens/screen_1.dart';
 import 'package:get/get.dart';
 
