@@ -12,6 +12,6 @@ class PagesRoute {
     GetPage(name: RoutesNamed.product_page, page: () => Product()),
     GetPage(name: RoutesNamed.product_page + '/:id?', page: () => DetailPage()),
     GetPage(name: RoutesNamed.count_page, page: () => CountPage()),
-    GetPage(name: RoutesNamed.text_page, page: () => TextPage()),
+    // GetPage(name: RoutesNamed.text_page, page: () => TextPage()),
   ];
 }
