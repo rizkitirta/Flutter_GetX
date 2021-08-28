@@ -1,22 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_getx/routes/pages_route.dart';
-import 'package:flutter_getx/screens/home_page.dart';
-// import 'package:flutter_getx/screens/screen_1.dart';
 import 'package:get/get.dart';
 
-void main(List<String> args) {
-  runApp(MainPage());
+import './routes/app_pages.dart';
+import './pages/home_page.dart';
+
+import './controllers/usersC.dart';
+
+void main() {
+  runApp(MyApp());
 }
 
-class MainPage extends StatelessWidget {
-  // final orangController = Get.put(OrangController());
-
+class MyApp extends StatelessWidget {
+  final userC = Get.put(UsersC());
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: HomePage(),
-      getPages: PagesRoute.pages,
+      getPages: AppPages.pages,
     );
   }
 }
