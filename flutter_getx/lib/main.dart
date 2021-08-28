@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx/controllers/myController.dart';
+import 'package:flutter_getx/routes/route_name.dart';
 import 'package:get/get.dart';
 
 import './routes/app_pages.dart';
@@ -54,28 +56,45 @@ class PageDua extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text("${Get.arguments}"),
-              ElevatedButton(onPressed: () => Get.to(() => PageTiga()), child: Text("Page 3 >>")),
+              ElevatedButton(
+                  onPressed: () => Get.toNamed(RouteName.my_page),
+                  child: Text("Page 3 >>")),
             ],
           ),
         ));
   }
 }
 
-class PageTiga extends StatelessWidget {
+class PageTiga extends GetView<MyController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Page Tiga"),
+      appBar: AppBar(
+        title: Text("Page Tiga"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            controller.obx(
+                (state) => Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.network("${state["avatar"]}"),
+                        Text(
+                            "Nama: ${state['first_name'] + " " + state['last_name']}"),
+                        Text("Nama: ${state['email']}"),
+                      ],
+                    ),
+                onLoading: Text("Loading")),
+            ElevatedButton(onPressed: () {}, child: Text("Page 2 >>")),
+          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text("${Get.previousRoute}"),
-              ElevatedButton(onPressed: () {}, child: Text("Page 2 >>")),
-            ],
-          ),
-        ));
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => controller.getData(),
+        child: Icon(Icons.refresh),
+      ),
+    );
   }
 }

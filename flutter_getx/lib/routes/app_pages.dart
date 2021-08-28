@@ -1,3 +1,5 @@
+import 'package:flutter_getx/bindings/myB.dart';
+import 'package:flutter_getx/main.dart';
 import 'package:get/get.dart';
 
 import './route_name.dart';
@@ -24,5 +26,6 @@ class AppPages {
       page: () => AddPage(),
       binding: AddUserB(),
     ),
+    GetPage(name: RouteName.my_page, page: () => PageTiga(), binding: MyB())
   ];
 }
